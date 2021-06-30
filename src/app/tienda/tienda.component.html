@@ -1,0 +1,31 @@
+<h2>Lista de productos</h2>
+
+  <fieldset>
+    <legend>Registro de productos para el carrito:</legend>
+    <p>
+      <label for='producto'>Producto</label>
+      <input type="text" id='producto' placeholder="Producto" [(ngModel)]="newProducto.nombre" />
+    </p>
+    <p>
+      <label for='cantidad'>Cantidad</label>
+      <input type="number" id='cantidad' placeholder="Cantidad" [(ngModel)]="newProducto.cantidad" />
+    </p>
+    <p>
+      <label for='precio'>Precio(€)</label>
+      <input type="number" id='precio' placeholder="Precio" [(ngModel)]="newProducto.precio" />
+    </p>
+    <button (click)="addProducto()">Añadir producto</button>
+  </fieldset>
+
+
+
+<!--El decide recoger una variable, en este caso productos -->
+<app-carrito 
+  [productos]="productos"
+  (borrarProducto)="borrarDeLaListaUnProducto($event)"
+  (ProductoIncrementarCantidad)="sumarCantidad($event)"
+  (ProductoDecrementarCantidad)="restarCantidad($event)"
+  (vaciado)="vaciarCarro($event)"
+></app-carrito>
+<!-- el decidió declarar un @Input() con el nombre de "productos",
+por eso entre [] se pone productos y no "task" -->

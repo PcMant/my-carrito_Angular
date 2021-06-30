@@ -1,0 +1,15 @@
+<h2>Carrito</h2>
+
+<!--Un bucle para dibujar a todos los del carrito-->
+<!-- Es posible usarlo usando como parametro producto, pero lo normal es usar $event -->
+<app-producto 
+  [producto]="producto" 
+  (borrarProducto)="borrarUnProducto($event)"
+  (ProductoSumaCantidad)="sumarCantidad($event)"
+  (ProductoRestaCantidad)="restarCantidad($event)"
+  *ngFor="let producto of productos"
+></app-producto>
+
+
+<button (click)="vaciarCarro()">Pagar</button>
+<span>Precio total a pagar {{ obtenerTotal() }} €</span>

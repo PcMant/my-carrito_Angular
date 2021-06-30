@@ -1,0 +1,10 @@
+<div id="producto">
+  <div>Producto: {{ producto.nombre }}</div>
+  <div>
+    Cantidad: {{ producto.cantidad }}
+    <button (click)="sumarCantidad()">+</button>
+    <button (click)="restarCantidad()">-</button>
+  </div>
+  <div>Precio: {{ producto.precio }} €</div>
+  <button (click)="borrarDeLaLista()">Borrar de la Lista</button>
+</div>
